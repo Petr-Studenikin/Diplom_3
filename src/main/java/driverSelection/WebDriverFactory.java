@@ -15,7 +15,7 @@ public class WebDriverFactory {
         WebDriver driver;
 
         Properties prop = new Properties();try {
-            prop.load(new FileInputStream("src/test/browser.properties"));} catch (IOException e) {
+            prop.load(new FileInputStream("src/test/resources/browser.properties"));} catch (IOException e) {
             throw new RuntimeException(e);}
         String browserName = prop.getProperty("browser");
 
@@ -29,7 +29,7 @@ public class WebDriverFactory {
                 driver.manage().window().maximize();
                 break;
             case "yandex":
-                System.setProperty("webdriver.chrome.driver", "src/test/yandexdriver.exe");
+                System.setProperty("webdriver.chrome.driver", "src/test/resources/yandexdriver.exe");
                 ChromeOptions optionsYa = new ChromeOptions();
                 optionsYa.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(optionsYa);
